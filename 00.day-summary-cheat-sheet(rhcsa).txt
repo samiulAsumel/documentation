@@ -1,0 +1,35 @@
+# ===== DAY 1 CHEAT SHEET — COPY THIS =====
+
+# Where am I?
+
+pwd
+
+# Go somewhere
+
+cd /path/to/dir # absolute
+cd ..           # up one level
+cd ~            # home
+cd -            # previous dir
+
+# List files
+
+ls      # basic
+ls -l   # long format
+ls -la  # + hidden files
+ls -lh  # + human readable
+ls -lt  # + sorted by time
+ls -lR  # recursive
+
+# File type in ls -l output
+
+# - = file | d = directory | l = symlink
+
+# System info
+
+whoami              # current user
+id                  # user + group details
+cat /etc/os-release # OS version
+hostname            # system hostname
+uname -r            # kernel version
+
+# ==========================================
