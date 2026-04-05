@@ -1,5 +1,3 @@
-# ===== DAY 1 CHEAT SHEET — COPY THIS =====
-
 # Where am I?
 
 pwd
@@ -33,3 +31,38 @@ hostname            # system hostname
 uname -r            # kernel version
 
 # ==========================================
+
+# === TAB COMPLETION ===
+<partial><TAB>        # complete করো
+<partial><TAB><TAB>   # সব options দেখো
+
+# === HISTORY ===
+history               # সব commands দেখো
+!!                    # last command repeat
+!n                    # history number n run করো
+!string               # "string" দিয়ে শুরু last command
+Ctrl+R                # reverse search (most useful!)
+
+# === KEYBOARD SHORTCUTS ===
+Ctrl+A / Ctrl+E       # line শুরু / শেষ
+Ctrl+U / Ctrl+K       # বাম / ডান দিক delete
+Ctrl+W                # one word delete (left)
+Ctrl+L                # clear screen
+Ctrl+C                # kill running command
+
+# === VARIABLES ===
+VAR="value"           # shell variable
+export VAR            # environment variable বানাও
+echo $VAR             # use করো
+env | grep VAR        # verify
+unset VAR             # delete করো
+echo $?               # last command exit code
+
+# === ALIASES ===
+alias name='command'  # temporary alias
+echo "alias..." >> ~/.bashrc && source ~/.bashrc  # permanent
+
+# === IMPORTANT BUILT-INS ===
+echo $PATH $HOME $USER $SHELL $PWD $HOSTNAME $$
+
+
