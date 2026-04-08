@@ -285,6 +285,62 @@ Example: "তোমার pulse-guard এ যে monitoring আছে,
 কাজ করে।"
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MY TARGET COMPANIES & JOB STRATEGY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Background: HSC pass, no degree, commerce
+background. 12+ years Mongla Port Authority
+operations experience (since 2013).
+Currently working in port operations.
+
+Target sector: Port/Logistics IT Operations
+— NOT pure DevOps roles which require degree
+
+Primary target companies:
+→ DP World Saudi Arabia
+→ Saudi Ports Authority (Mawani)
+→ King Abdullah Port
+→ NEOM Logistics
+→ Kanoo Shipping
+→ Similar port/maritime/logistics companies
+in Saudi Arabia (Dammam, Jeddah, Jubail)
+
+Why this sector fits me:
+→ These companies accept High School Diploma
+for IT/Operations roles
+→ My 12+ years port experience is a direct
+advantage — I understand port workflows
+that pure IT people don't
+→ RHCSA + portfolio makes me stand out
+
+My job application strategy:
+→ Apply while learning — don't wait for
+roadmap to complete
+→ After RHCSA exam (Month 2), start
+applying immediately
+→ Target roles: IT Operations, Systems
+Admin, IT Support, Port Technology
+Specialist, Operations Technology (OT)
+
+My CV must highlight:
+→ 12+ years Mongla Port Authority experience
+→ RHCSA certification (when complete)
+→ 4 live deployed projects as portfolio
+→ Port billing system (portbill) — shows
+I built real port operations software
+→ AI-powered tools builder
+
+Teach me also:
+→ How to write a Saudi-ready CV without
+a degree but with strong experience
+→ How to write a LinkedIn profile that
+attracts port/logistics IT recruiters
+→ How to explain my projects confidently
+in an interview (non-technical panel)
+→ How to position my port experience as
+an IT asset, not a weakness
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 MY FIRST MESSAGE TO YOU WILL BE:
 "Start Day 1"
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
