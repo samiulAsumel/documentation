@@ -65,4 +65,89 @@ echo "alias..." >> ~/.bashrc && source ~/.bashrc  # permanent
 # === IMPORTANT BUILT-INS ===
 echo $PATH $HOME $USER $SHELL $PWD $HOSTNAME $$
 
+Day 3 Cheat Sheet
+# === NAVIGATION ===
+pwd                          # আমি এখন কোথায়?
+cd /etc                      # /etc এ যাও
+cd ~                         # home এ ফিরে যাও
+cd -                         # আগের directory তে ফিরে যাও
+ls -la                       # সব files দেখো (hidden সহ)
+ls -lh                       # human-readable sizes
 
+# === MKDIR ===
+mkdir dirname                # directory তৈরি
+mkdir -p path/to/nested/dir  # nested path তৈরি
+mkdir -m 755 dirname         # permission সহ তৈরি
+
+# === CP ===
+cp src dest                  # file copy
+cp -r srcdir destdir         # directory copy
+cp -p src dest               # preserve permissions/timestamps
+cp -n src dest               # overwrite করবে না
+
+# === MV ===
+mv old new                   # rename
+mv file /path/               # move
+mv -i src dest               # interactive confirm
+
+# === RM ===
+rm file                      # file delete
+rm -r dir                    # directory delete
+rm -rf dir                   # force delete (no confirm)
+rm -i file                   # confirm চেয়ে delete
+
+# === KEY FHS PATHS ===
+/etc/          → Config files (SSH, users, network, repos)
+/var/log/      → All system logs
+/home/USER/    → User's home directory
+/root/         → Root user's home (NOT same as /)
+/tmp/          → Temp files (CLEARED on reboot!)
+/proc/         → Kernel virtual FS (not on disk)
+/boot/         → Kernel + GRUB (don't touch carelessly)
+/dev/          → Device files (vda, tty, etc.)
+/usr/bin/      → User commands
+/usr/sbin/     → Admin commands
+
+DAY 4 SUMMARY
+# ══════════════════════════════════════════
+#  HARD LINKS
+# ══════════════════════════════════════════
+ln /source/file /destination/hardlink   # hard link তৈরি
+ls -li                                  # inode number দেখো (same হবে)
+stat file                               # Links: count দেখো
+
+# ══════════════════════════════════════════
+#  SYMBOLIC LINKS
+# ══════════════════════════════════════════
+ln -s /absolute/source /path/to/symlink  # symlink তৈরি
+ls -l                                    # lrwxrwxrwx + -> path
+readlink symlink                         # target দেখো
+readlink -f symlink                      # full resolved path
+find /path -type l                       # সব symlinks খোঁজো
+
+# ══════════════════════════════════════════
+#  WILDCARDS (Globbing)
+# ══════════════════════════════════════════
+*           # যেকোনো string (0+ chars)
+?           # exactly 1 char
+[abc]       # a, b, বা c
+[a-z]       # range
+[!abc]      # a,b,c ছাড়া
+"*.conf"    # find এ quotes দিয়ে wildcard দাও!
+
+# ══════════════════════════════════════════
+#  BRACE EXPANSION
+# ══════════════════════════════════════════
+{a,b,c}         # তিনটা আলাদা item
+{1..10}         # 1 থেকে 10
+{0..20..5}      # 0,5,10,15,20 (step 5)
+file{,.bak}     # config backup trick! ← EXAM GOLD
+mkdir -p /opt/{logs,data,config}
+
+# ══════════════════════════════════════════
+#  COMMAND SUBSTITUTION
+# ══════════════════════════════════════════
+$(command)              # preferred syntax
+`command`               # old syntax (avoid)
+mkdir backup-$(date +%Y%m%d)   # dated backup dir
+echo "Host: $(hostname)"
