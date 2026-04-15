@@ -151,3 +151,37 @@ $(command)              # preferred syntax
 `command`               # old syntax (avoid)
 mkdir backup-$(date +%Y%m%d)   # dated backup dir
 echo "Host: $(hostname)"
+
+# ═══ REDIRECTION ═══
+>           # stdout overwrite (file মুছে নতুন করে লেখে)
+>>          # stdout append   (পুরানো data রাখে)
+2>          # stderr redirect
+2>>         # stderr append
+&>          # stdout + stderr একসাথে (bash only)
+2>&1        # stderr → stdout এর destination এ merge
+2>/dev/null # errors suppress (cron jobs এ common)
+
+# ═══ PIPE ═══
+cmd1 | cmd2        # cmd1 output → cmd2 input
+cmd1 | cmd2 | cmd3 # chain করো
+
+# ═══ GREP ═══
+grep "str" file        # basic search
+grep -i                # case insensitive
+grep -v                # invert (exclude)
+grep -n                # line numbers দেখাও
+grep -r                # recursive (directory তে)
+grep -l                # filenames only (not content)
+grep -c                # count of matching lines
+grep -E "a|b"          # extended regex (OR)
+grep -w "word"         # whole word only
+
+# ═══ TEE ═══
+cmd | tee file         # screen + file দুটোতেই
+cmd | tee -a file      # append mode
+
+# ═══ EXAM COMBOS ═══
+grep "pat" /etc/passwd > /root/out.txt
+find / -name "*.conf" 2>/dev/null > /root/confs.txt
+grep -rl "string" /etc 2>/dev/null > /root/files.txt
+cmd | tee /root/out.txt | wc -l
