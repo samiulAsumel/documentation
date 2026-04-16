@@ -185,3 +185,49 @@ grep "pat" /etc/passwd > /root/out.txt
 find / -name "*.conf" 2>/dev/null > /root/confs.txt
 grep -rl "string" /etc 2>/dev/null > /root/files.txt
 cmd | tee /root/out.txt | wc -l
+
+# ═══════════════════════════════════════
+# VIM EXAM CHEAT SHEET — Day 6
+# ═══════════════════════════════════════
+
+# OPEN
+vim filename
+
+# MODES
+i        → Insert (before cursor)
+a        → Insert (after cursor)  
+o        → Insert (new line below)
+Esc      → Back to Normal ← DO THIS FIRST!
+v        → Visual mode
+:        → Command mode
+
+# NAVIGATION (Normal mode)
+gg / G   → file start / end
+:42      → go to line 42
+/word    → search forward
+n / N    → next / previous match
+0 / $    → line start / end
+
+# EDIT (Normal mode)
+dd       → delete line
+yy / p   → copy / paste line
+u        → undo
+Ctrl+r   → redo
+
+# SEARCH & REPLACE (Command mode)
+:%s/old/new/g     → replace all in file
+:%s/old/new/gc    → replace with confirmation
+
+# SAVE & QUIT (Command mode)
+:w       → save only
+:wq      → save and quit ← EXAM DEFAULT
+:q!      → quit WITHOUT saving ← ESCAPE HATCH
+ZZ       → shortcut for :wq
+
+# HELPERS
+:set nu  → show line numbers (use at exam start)
+
+# .vimrc (run once before exam tasks)
+echo "set number" >> ~/.vimrc
+
+# ═══════════════════════════════════════
