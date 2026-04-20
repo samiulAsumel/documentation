@@ -231,3 +231,39 @@ ZZ       → shortcut for :wq
 echo "set number" >> ~/.vimrc
 
 # ═══════════════════════════════════════
+
+
+# === FILE LOCATIONS ===
+/etc/passwd      # Users — world readable (644)
+/etc/shadow      # Password hashes — root only (000)
+/etc/group       # Groups — world readable (644)
+/etc/gshadow     # Group passwords — root only (000)
+
+# === READ COMMANDS ===
+cat /etc/passwd                    # সব users
+getent passwd username             # specific user (LDAP-aware)
+getent shadow username             # shadow info (root only)
+sudo grep "username" /etc/shadow   # raw shadow entry
+
+# === USER INFO ===
+id username                        # UID, GID, all groups
+whoami                             # current user
+groups username                    # all groups of user
+chage -l username                  # password aging info (EXAM FAVORITE)
+
+# === QUICK FILTERS ===
+cut -d: -f1,3,7 /etc/passwd        # name:UID:shell
+awk -F: '$3>=1000' /etc/passwd     # regular users only
+grep "/sbin/nologin" /etc/passwd   # service accounts
+sudo grep "^user:!!" /etc/shadow   # locked accounts
+
+# === PERMISSIONS (verify these!) ===
+ls -la /etc/passwd   # must be -rw-r--r-- (644)
+ls -la /etc/shadow   # must be ---------- (000)
+ls -la /etc/group    # must be -rw-r--r-- (644)
+
+# === passwd FIELDS (7) ===
+# username:x:UID:GID:GECOS:home:shell
+
+# === shadow FIELDS (9) ===
+# username:hash:lastchg:min:max:warn:inactive:expire:reserved
