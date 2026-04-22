@@ -267,3 +267,38 @@ ls -la /etc/group    # must be -rw-r--r-- (644)
 
 # === shadow FIELDS (9) ===
 # username:hash:lastchg:min:max:warn:inactive:expire:reserved
+
+# ══════════════════════════════════════════════
+# DAY 9 CHEAT SHEET — useradd/usermod/userdel
+# ══════════════════════════════════════════════
+
+# CREATE user (full options)
+useradd -u [UID] -g [PRIMARY_GRP] -G [SEC_GRP1,SEC_GRP2] \
+        -s /bin/bash -d /home/USER -c "Comment" \
+        -e YYYY-MM-DD USERNAME
+
+# SERVICE ACCOUNT (no login, no home)
+useradd -r -M -s /sbin/nologin USERNAME
+
+# MODIFY — ADD to group (NEVER forget -a!)
+usermod -aG groupname USERNAME
+
+# MODIFY — multiple changes
+usermod -s /sbin/nologin -e 2025-12-31 -c "New Comment" USERNAME
+
+# LOCK / UNLOCK
+usermod -L USERNAME   # Lock
+usermod -U USERNAME   # Unlock
+
+# DELETE (with home dir)
+userdel -r USERNAME
+
+# VERIFY CHECKLIST
+id USERNAME                          # UID, GID, groups
+grep USERNAME /etc/passwd            # Shell, home, UID
+grep USERNAME /etc/shadow            # Password, expiry
+chage -l USERNAME                    # Aging details
+
+# PASSWORD
+echo "Password1" | passwd --stdin USERNAME
+passwd -e USERNAME   # Force change on next login
