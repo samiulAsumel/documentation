@@ -302,3 +302,38 @@ chage -l USERNAME                    # Aging details
 # PASSWORD
 echo "Password1" | passwd --stdin USERNAME
 passwd -e USERNAME   # Force change on next login
+
+# GROUP MANAGEMENT
+groupadd -g GID groupname           # create group with specific GID
+groupmod -n newname oldname         # rename group
+groupdel groupname                  # delete group
+
+# MEMBERSHIP
+gpasswd -a user group               # ADD user to group (safe)
+gpasswd -d user group               # REMOVE user from group
+gpasswd -M u1,u2,u3 group          # SET member list (OVERWRITES!)
+usermod -aG group user              # APPEND secondary group (need -a!)
+
+# VERIFY
+id username                         # all groups of user
+grep groupname /etc/group           # group members
+getent group groupname              # same but works with LDAP too
+
+# PASSWORD AGING
+chage -l username                   # show aging info
+chage -M 90 username                # max days
+chage -m 7 username                 # min days
+chage -W 14 username                # warning days
+chage -d 0 username                 # force change on next login
+chage -E 2026-06-30 username        # account expiry
+chage -E -1 username                # remove expiry
+passwd -l username                  # lock
+passwd -u username                  # unlock
+passwd -e username                  # expire now
+
+# /etc/login.defs (NEW users only)
+PASS_MAX_DAYS   90
+PASS_MIN_DAYS   0
+PASS_WARN_AGE   7
+
+
