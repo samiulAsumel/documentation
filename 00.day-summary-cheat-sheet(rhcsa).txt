@@ -336,4 +336,31 @@ PASS_MAX_DAYS   90
 PASS_MIN_DAYS   0
 PASS_WARN_AGE   7
 
+# ── SU ──────────────────────────────────────────
+su -                          # root login shell
+su - USERNAME                 # other user login shell
+su -c "CMD" USERNAME          # one command as user
 
+# ── SUDO ────────────────────────────────────────
+sudo CMD                      # run as root
+sudo -u USER CMD              # run as specific user
+sudo -i                       # root interactive shell
+sudo -l                       # list my sudo perms
+sudo -l -U USER               # list another user's perms
+
+# ── VISUDO ──────────────────────────────────────
+visudo                        # edit /etc/sudoers safely
+visudo -f /etc/sudoers.d/FILE # edit drop-in file
+
+# ── SUDOERS SYNTAX ──────────────────────────────
+USER   ALL=(ALL)  ALL                        # full sudo
+USER   ALL=(ALL)  NOPASSWD: ALL              # no password
+%GROUP ALL=(ALL)  ALL                        # group sudo
+%GROUP ALL=(ALL)  NOPASSWD: /path/cmd1, /path/cmd2
+
+# ── PERMISSIONS ─────────────────────────────────
+chmod 0440 /etc/sudoers.d/FILENAME   # mandatory!
+
+# ── VERIFY ──────────────────────────────────────
+sudo -l -U natasha
+ls -l /etc/sudoers.d/
