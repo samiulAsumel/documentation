@@ -8,7 +8,7 @@
 
 #### **Day 1: Enterprise Environment Setup - Industry-Aligned**
 
-- **Industry Standard**: Enterprise virtualization and system infrastructure deployment
+- **Industry Standard**: Enterprise virt ualization and system infrastructure deployment
 - **Morning Drills**: VM creation commands, network configuration basics
 - **Learning**: Rocky Linux 9/AlmaLinux 9 installation on VMware
 - **Hands-On Labs**: 3 practical lab sessions with real scenarios
